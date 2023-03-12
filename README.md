@@ -120,12 +120,24 @@ If you use "Randomize Shrine of Believers", the locations are only in logic if y
 ### Cursed Listening
 Randomizes the ability to talk to npc and therefore travelling with the stag and entering shops.
 The mod tries to display a message that the player can't listen when they try. If that fails the interaction is removed entirely.
+**If you kill a ghost npc before obtaining their check, the shiny will only spawn if you have this ability!**
+
 **Currently it is possible to talk to Iselda once, because of unknown reason**
 
 ## Other Mods
 
 ### Lore Master
-- Not compatible!
+This mod is the (rando only) successor to Lore Master and not compatible with it. If you have played with it before, this mods checks may seem familiar. Here is a list of changes that the mod has to lore master:
+- Bretta instead of her diary is randomized. (And her check control if her house is open or not.
+- Godseeker, Millibelle and the Hidden Moth are new in the Randomize NPC pool.
+- Randomize Dream Warrior location has merged with Randomize Point of Interest.
+- Powers, the treasures and the black egg temple condition have been removed completely. Although the power names will still be displayed for certain checks.
+- Elderbug Rewards have now a dynamic price, dynamic length and no longer adds items itself to the pool.
+- Myla is now killable after obtaining her item :c
+- Ghosts, the crystal shaman and the pale king can be "killed" regardless if you have obtained their check. Reentering the room will spawn the item back (if you've met the condition).
+- Menderbug is no longer invincible :c
+- The traveller order "shuffled" is removed and "Everywhere" got renamed to "None".
+- Hornet stages are added to "Randomize Traveller".
 
 ### Curse Randomizer
 - The reading and listening ability items can be mimicked by curses.
