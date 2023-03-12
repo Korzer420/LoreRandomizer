@@ -69,7 +69,7 @@
     },
     {
         "name": "Menderbug_Diary",
-        "logic": "(LISTEN ? ANY) + Room_Mender_House[left1]"
+        "logic": "(READ ? ANY) + Room_Mender_House[left1]"
     },
     {
         "name": "Godseeker",
