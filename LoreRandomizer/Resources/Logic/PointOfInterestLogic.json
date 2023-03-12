@@ -1,7 +1,7 @@
 [
     {
         "name": "Lore_Tablet-Record_Bela",
-        "logic": "(READ ? ANY) + (Ruins1_30[left1] | Ruins1_30[right1] | Ruins1_30[left2] + QUAKE + (LEFTCLAW | RIGHTCLAW | WINGS))"
+        "logic": "(READ ? ANY) + (Ruins1_30[left1] | Ruins1_30[right1] | Ruins1_30[left2] + (BREAKABLE_Ruins130_QuakeFloorGlass1 ? QUAKE) + (BREAKABLE_Ruins130_QuakeFloorGlass ? QUAKE) + (LEFTCLAW | RIGHTCLAW | WINGS))"
     },
     {
         "name": "Stag_Nest",
@@ -25,7 +25,7 @@
     },
     {
         "name": "Weaver_Seal",
-        "logic": "(READ ? ANY) + (Deepnest_45_v02[left1] + (RIGHTCLAW | WINGS + (LEFTCLAW | ENEMYPOGOS)) + (LEFTDASH + WINGS | LEFTSUPERDASH) + (LEFTDASH | SPIKETUNNELS) + (LEFTCLAW | RIGHTCLAW | LEFTSLASH | UPSLASH | FIREBALL | SCREAM))"
+        "logic": "(READ ? ANY) + ((BREAKABLE_Deepnest45v02_BreakableWall ? ANY) + (BREAKABLE_Deepnest45v02_BreakableWallWaterways ? ANY)) + (Deepnest_45_v02[left1] + (RIGHTCLAW | WINGS + (LEFTCLAW | ENEMYPOGOS)) + (LEFTDASH + WINGS | LEFTSUPERDASH) + (LEFTDASH | SPIKETUNNELS) + (LEFTCLAW | RIGHTCLAW | LEFTSLASH | UPSLASH | FIREBALL | SCREAM))"
     },
     {
         "name": "Grimm_Machine",
@@ -37,7 +37,7 @@
     },
     {
         "name": "White_Palace_Nursery",
-        "logic": "(READ ? ANY) + (White_Palace_09[right1] + LEFTSUPERDASH + QUAKE + (LEFTCLAW | WINGS))"
+        "logic": "(READ ? ANY) + (White_Palace_09[right1] + LEFTSUPERDASH + (BREAKABLE_WhitePalace09_QuakeFloor ? QUAKE) + (LEFTCLAW | WINGS))"
     },
     {
         "name": "Grimm_Summoner_Corpse",

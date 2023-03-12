@@ -15,6 +15,10 @@ public class LoreRandomizer : Mod, IGlobalSettings<GlobalSaveData>
 
     public static RandoSettings RandoSettings => Instance.Settings;
 
+    public bool GenerateLoreTablets { get; set; }
+
+    public override string GetVersion() => "0.1.0.0";
+
     #endregion
 
     #region Methods
@@ -23,7 +27,15 @@ public class LoreRandomizer : Mod, IGlobalSettings<GlobalSaveData>
     {
         RandoInterop.Initialize();
         ConnectionMenu.AttachMenu();
+        On.GameManager.StartNewGame += GameManager_StartNewGame;
         Instance = this;
+    }
+
+    private void GameManager_StartNewGame(On.GameManager.orig_StartNewGame orig, GameManager self, bool permadeathMode, bool bossRushMode)
+    {
+        orig(self, permadeathMode, bossRushMode);
+        if (GenerateLoreTablets)
+            LoreCore.LoreCore.Instance.CreateVanillaCustomLore();
     }
 
     public void OnLoadGlobal(GlobalSaveData s)

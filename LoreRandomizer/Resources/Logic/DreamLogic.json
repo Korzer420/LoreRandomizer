@@ -13,7 +13,7 @@
     },
     {
         "name": "Crystalized_Shaman_Dream",
-        "logic": "Mines_35[left1] + QUAKE + (LEFTCLAW | RIGHTCLAW + PRECISEMOVEMENT + (RIGHTDASH | DIFFICULTSKIPS + FIREBALLSKIPS + (FIREBALL | SCREAM)) | WINGS) + DREAMNAIL"
+        "logic": "(BREAKABLE_Mines35_Scenerymine1quakefloor ? ANY) + Mines_35[left1] + QUAKE + (LEFTCLAW | RIGHTCLAW + PRECISEMOVEMENT + (RIGHTDASH | DIFFICULTSKIPS + FIREBALLSKIPS + (FIREBALL | SCREAM)) | WINGS) + DREAMNAIL"
     },
     {
         "name": "Ancient_Nailsmith_Golem_Dream",
@@ -57,7 +57,7 @@
     },
     {
         "name": "Snail_Shaman_Tomb_Dream",
-        "logic": "RestingGrounds_10 + (LEFTCLAW | RIGHTCLAW | WINGS) + (LEFTSLASH | RIGHTSLASH | UPSLASH | FIREBALL | SCREAM | QUAKE | Cyclone_Slash | Great_Slash | Dash_Slash + LEFTDASH + RIGHTDASH) + DREAMNAIL"
+        "logic": "RestingGrounds_10 + (LEFTCLAW | RIGHTCLAW | WINGS) + (LEFTSLASH | RIGHTSLASH | UPSLASH | FIREBALL | SCREAM | QUAKE | Cyclone_Slash | Great_Slash | Dash_Slash + LEFTDASH + RIGHTDASH) + DREAMNAIL + ((BREAKABLE_RestingGrounds10_BreakableWall8 ? ANY) + (BREAKABLE_RestingGrounds10_BreakableWall7 ? ANY) + (BREAKABLE_RestingGrounds10_BreakableWall6 ? ANY))"
     },
     {
         "name": "Pale_King_Dream",

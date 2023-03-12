@@ -17,7 +17,7 @@
     },
     {
         "name": "Midwife",
-        "logic": "(LISTEN ? ANY) + Deepnest_41[left2] + (LANTERN | DARKROOMS)"
+        "logic": "(LISTEN ? ANY) + (BREAKABLE_Deepnest41_BreakableWall ? ANY) + Deepnest_41[left2] + (LANTERN | DARKROOMS)"
     },
     {
         "name": "Gravedigger",
@@ -45,11 +45,11 @@
     },
     {
         "name": "Moss_Prophet",
-        "logic": "(LISTEN ? ANY) + (Fungus3_39[left1] | Fungus3_39[right1])"
+        "logic": "(LISTEN ? ANY) + ((Fungus3_39[left1] + (BREAKABLE_Fungus339_OneWayWall ? ANY)) | Fungus3_39[right1])"
     },
     {
         "name": "Fluke_Hermit",
-        "logic": "(LISTEN ? ANY) + ((Room_GG_Shortcut[top1] | Room_GG_Shortcut[left1] + (LEFTCLAW + WINGS | RIGHTCLAW) + (RIGHTCLAW + WINGS | (WINGS + LEFTDASH | WINGS + LEFTSUPERDASH | SWIM) + (RIGHTCLAW + (RIGHTDASH | LEFTCLAW + (RIGHTSUPERDASH | ENEMYPOGOS))) | LEFTCLAW + RIGHTDASH + WINGS + PRECISEMOVEMENT)) + (SWIM | (FULLCLAW + RIGHTSUPERDASH + ACIDSKIPS)))"
+        "logic": "(LISTEN ? ANY) + (BREAKABLE_RoomGGShortcut_BreakableGrate ? ANY) + ((Room_GG_Shortcut[top1] | Room_GG_Shortcut[left1] + (LEFTCLAW + WINGS | RIGHTCLAW) + (RIGHTCLAW + WINGS | (WINGS + LEFTDASH | WINGS + LEFTSUPERDASH | SWIM) + (RIGHTCLAW + (RIGHTDASH | LEFTCLAW + (RIGHTSUPERDASH | ENEMYPOGOS))) | LEFTCLAW + RIGHTDASH + WINGS + PRECISEMOVEMENT)) + (SWIM | (FULLCLAW + RIGHTSUPERDASH + ACIDSKIPS)))"
     },
     {
         "name": "Grasshopper",

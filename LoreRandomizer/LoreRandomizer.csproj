@@ -26,7 +26,9 @@
 
     <ItemGroup>
       <None Remove="Resources\Logic\DreamLogic.json" />
+      <None Remove="Resources\Logic\ListenLogic.json" />
       <None Remove="Resources\Logic\PointOfInterestLogic.json" />
+      <None Remove="Resources\Logic\ReadLogic.json" />
       <None Remove="Resources\Logic\ShrineLogic.json" />
       <None Remove="Resources\Logic\TravellerLogic.json" />
       <None Remove="Resources\Waypoints.json" />

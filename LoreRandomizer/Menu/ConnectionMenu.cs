@@ -57,10 +57,10 @@ public class ConnectionMenu
         {
             // For simplicity, three of the four pools have to be enabled for Elderbug to be possible.
             int poolsActive = 0;
-            for (int i = 2; i < 6; i++)
+            for (int i = 1; i < 6; i++)
                 if ((bool)_menuElementFactory.Elements[i].Value)
                     poolsActive++;
-            if (poolsActive < 3)
+            if (poolsActive < 1)
                 _menuElementFactory.ElementLookup[nameof(RandoSettings.RandomizeElderbugRewards)].SetValue(false);
         }
     }
@@ -103,6 +103,15 @@ public class ConnectionMenu
             new VerticalItemPanel(_mainPage, new(0f, 450f), 80f, true, _menuElementFactory.Elements);
             for (int i = 2; i < 6; i++)
                 _menuElementFactory.Elements[i].SelfChanged += CheckIfElderbugPossible;
+            if (!LoreRandomizer.Instance.Settings.RandomizeTravellerDialogues)
+                _menuElementFactory.ElementLookup[nameof(RandoSettings.TravellerOrder)].Hide();
+            _menuElementFactory.ElementLookup[nameof(RandoSettings.RandomizeTravellerDialogues)].SelfChanged += x =>
+            {
+                if ((bool)x.Value)
+                    _menuElementFactory.ElementLookup[nameof(RandoSettings.TravellerOrder)].Show();
+                else
+                    _menuElementFactory.ElementLookup[nameof(RandoSettings.TravellerOrder)].Hide();
+            };
             _menuElementFactory.ElementLookup[nameof(RandoSettings.RandomizeElderbugRewards)].SelfChanged += CheckIfPossible;
         }
         catch (Exception exception)
@@ -116,6 +125,13 @@ public class ConnectionMenu
     #region Interop
 
     // To do: RSM
+    internal void PassRSMSettings(RandoSettings settings)
+    {
+        if (settings == null)
+            _menuElementFactory.ElementLookup[nameof(LoreRandomizer.RandoSettings.Enabled)].SetValue(false);
+        else
+            _menuElementFactory.SetMenuValues(settings);
+    }
 
     #endregion
 }
