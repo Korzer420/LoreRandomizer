@@ -27,12 +27,6 @@ namespace LoreRandomizer.RandoSetup;
 
 internal class RandoInterop
 {
-    #region Members
-
-    private static List<string> _selectedTablets = new();
-
-    #endregion
-
     #region Event handler
 
     private static void WriteLoreRandoSettings(LogArguments arg1, TextWriter textWriter)
@@ -64,7 +58,7 @@ internal class RandoInterop
 
     private static void AddLoreRando(RequestBuilder requestBuilder)
     {
-        _selectedTablets.Clear();
+        ShrineLocation.SelectedTablets.Clear();
         LoreRandomizer.Instance.GenerateLoreTablets = false;
         if (!LoreRandomizer.RandoSettings.Enabled)
             return;
@@ -126,7 +120,7 @@ internal class RandoInterop
                 string pickedLocation = viableTablets[random.Next(0, viableTablets.Count)];
                 viableTablets.Remove(pickedLocation);
                 requestBuilder.AddLocationByName(pickedLocation);
-                _selectedTablets.Add(pickedLocation);
+                ShrineLocation.SelectedTablets.Add(pickedLocation);
             }
         }
         if (LoreRandomizer.RandoSettings.CursedListening)
