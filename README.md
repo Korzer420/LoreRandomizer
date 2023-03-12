@@ -128,17 +128,19 @@ The mod tries to display a message that the player can't listen when they try. I
 
 ### Lore Master
 This mod is the (rando only) successor to Lore Master and not compatible with it. If you have played with it before, this mods checks may seem familiar. Here is a list of changes that the mod has to lore master:
-- Bretta instead of her diary is randomized. (And her check control if her house is open or not.
+- Powers, the treasures and the black egg temple condition have been removed completely. Although the power names will still be displayed for certain checks.
+- Define Refs was also removed.
+- The option to use the custom lore sprites (by kadala <3) and their name is now an extra option.
+- Bretta instead of her diary is randomized. (And her check control if her house is open or not.)
 - Godseeker, Millibelle and the Hidden Moth are new in the Randomize NPC pool.
 - Randomize Dream Warrior location has merged with Randomize Point of Interest.
-- Powers, the treasures and the black egg temple condition have been removed completely. Although the power names will still be displayed for certain checks.
-- Elderbug Rewards have now a dynamic price, dynamic length and no longer adds items itself to the pool.
+- Elderbug Rewards now function like the egg shop and does no longer add items.
 - Myla is now killable after obtaining her item :c
-- Ghosts, the crystal shaman and the pale king can be "killed" regardless if you have obtained their check. Reentering the room will spawn the item back (if you've met the condition).
+- Ghosts and the crystal shaman can be "killed" regardless if you have obtained their check. Reentering the room will spawn the item back (if you've met the condition).
 - Menderbug is no longer invincible :c
 - The traveller order "shuffled" is removed and "Everywhere" got renamed to "None".
 - Hornet stages are added to "Randomize Traveller".
-- Traveller order "vanilla" now affects special encounter.
+- Traveller order "vanilla" now affects special encounter as well.
 
 ### Curse Randomizer
 - The reading and listening ability items can be mimicked by curses.
