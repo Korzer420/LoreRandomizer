@@ -217,8 +217,7 @@ internal class RandoInterop
                 }
                 else
                     builder.AddItem(new SingleItem(item, new(loreTerm, 1)));
-            // The crystal shaman and Pale King items cannot be obtained until their dream dialogue has been acquired.
-            builder.DoLogicEdit(new(LocationNames.Descending_Dark, "(ORIG) + DREAMNAIL"));
+            // The pale King items cannot be obtained until their dream dialogue has been acquired.
             builder.DoLogicEdit(new(LocationNames.King_Fragment, "(ORIG) + DREAMNAIL"));
         }
         if (LoreRandomizer.RandoSettings.RandomizePointOfInterest)
