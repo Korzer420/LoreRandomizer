@@ -138,6 +138,7 @@ This mod is the (rando only) successor to Lore Master and not compatible with it
 - Menderbug is no longer invincible :c
 - The traveller order "shuffled" is removed and "Everywhere" got renamed to "None".
 - Hornet stages are added to "Randomize Traveller".
+- Traveller order "vanilla" now affects special encounter.
 
 ### Curse Randomizer
 - The reading and listening ability items can be mimicked by curses.
