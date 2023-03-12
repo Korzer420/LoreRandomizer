@@ -202,9 +202,7 @@ internal class RandoInterop
         {
             using Stream stream = ResourceHelper.LoadResource<LoreRandomizer>("Logic.DreamLogic.json");
             builder.DeserializeJson(LogicManagerBuilder.JsonType.Locations, stream);
-            // Lock grimm behind the grimm summoner dream dialogue, rather than the location.
-            builder.DoSubst(new("Rescued_Bretta", "Cliffs_06[left1] + DREAMNAIL | Grimmchild",
-                "Grimm_Summoner_Dream | Grimmchild"));
+            
             foreach (string item in DreamItems)
                 if (item == Grimm_Summoner_Dream)
                 {
@@ -214,9 +212,14 @@ internal class RandoInterop
                             new(loreTerm, 1),
                             new(summoner, 1)
                         }));
+                    // Lock grimm behind the grimm summoner dream dialogue, rather than the location.
+                    builder.DoLogicEdit(new("Nightmare_Lantern_Lit", "Grimmchild | Grimm_Summoner_Dream"));
                 }
                 else
                     builder.AddItem(new SingleItem(item, new(loreTerm, 1)));
+            // The crystal shaman and Pale King items cannot be obtained until their dream dialogue has been acquired.
+            builder.DoLogicEdit(new(LocationNames.Descending_Dark, "(ORIG) + DREAMNAIL"));
+            builder.DoLogicEdit(new(LocationNames.King_Fragment, "(ORIG) + DREAMNAIL"));
         }
         if (LoreRandomizer.RandoSettings.RandomizePointOfInterest)
         {
