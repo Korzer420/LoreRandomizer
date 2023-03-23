@@ -39,7 +39,8 @@ internal class RandoInterop
 
     private static void SetupTraveller(LogicManager logicManager, GenerationSettings generationSettings, ProgressionInitializer progressionInitializer)
     {
-        if (LoreRandomizer.RandoSettings.Enabled && LoreRandomizer.RandoSettings.TravellerOrder == Menu.TravellerBehaviour.None)
+        if (LoreRandomizer.RandoSettings.Enabled && LoreRandomizer.RandoSettings.RandomizeTravellerDialogues 
+            && LoreRandomizer.RandoSettings.TravellerOrder == Menu.TravellerBehaviour.None)
             foreach (Traveller traveller in Enum.GetValues(typeof(Traveller)))
                 progressionInitializer.Increments.Add(new(logicManager.GetTerm(traveller.ToString().ToUpper()), 10));
     }
