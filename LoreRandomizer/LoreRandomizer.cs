@@ -17,7 +17,7 @@ public class LoreRandomizer : Mod, IGlobalSettings<GlobalSaveData>
 
     public bool GenerateLoreTablets { get; set; }
 
-    public override string GetVersion() => "0.1.1.0";
+    public override string GetVersion() => "0.1.2.0";
 
     #endregion
 

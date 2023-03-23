@@ -124,9 +124,33 @@ internal class RandoInterop
             }
         }
         if (LoreRandomizer.RandoSettings.CursedListening)
+        { 
             requestBuilder.AddItemByName(Listen_Ability);
+            requestBuilder.EditItemRequest(Listen_Ability, info =>
+            {
+                info.getItemDef = () => new()
+                {
+                    MajorItem = true,
+                    Name = Listen_Ability,
+                    Pool = "Skill",
+                    PriceCap = 500
+                };
+            });
+        }
         if (LoreRandomizer.RandoSettings.CursedReading)
+        { 
             requestBuilder.AddItemByName(Read_Ability);
+            requestBuilder.EditItemRequest(Read_Ability, info =>
+            {
+                info.getItemDef = () => new()
+                {
+                    MajorItem = true,
+                    Name = Read_Ability,
+                    Pool = "Skill",
+                    PriceCap = 500
+                };
+            });
+        }
         if (LoreRandomizer.RandoSettings.UseCustomLore)
         {
             if (requestBuilder.gs.PoolSettings.LoreTablets)
@@ -134,6 +158,16 @@ internal class RandoInterop
                 {
                     requestBuilder.RemoveItemByName(loreTablet);
                     requestBuilder.AddItemByName(loreTablet + "_Empowered");
+                    requestBuilder.EditItemRequest(loreTablet + "_Empowered", info =>
+                    {
+                        info.getItemDef = () => new()
+                        {
+                            Name = loreTablet+"_Empowered",
+                            MajorItem = false,
+                            PriceCap = 1,
+                            Pool = "Lore"
+                        };
+                    });
                 }
             else
             {
