@@ -133,6 +133,7 @@ The shrine goals currently can be:
 - Bow while in a room with a nail master (except Sly)
 - Get scammed by Millibelle.
 - Kill Menderbug (currently unused)
+- Give the flower to two npc which have dialogue for it. (Although there might be more. The only onces counting are: Elderbug, Emilitia, White Lady, Oro, Godseeker)
 - Cast dive in Dirtmouth to sky dive into the well from at least the height of the king's pass entrance.
 
 (Yeah I know, those aren't even 28, but if someone want, they can expand on that.)
