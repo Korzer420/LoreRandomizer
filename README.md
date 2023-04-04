@@ -99,10 +99,14 @@ This does include special encounters:
 - Quirrel will not appear in the Uumuu fight.
 - Hornet will not appear in the THK fight, increasing true ending requirements by the Hornet stages.
 
+**The order follows the one on their respective Hollow Knight wiki page.**
+The progress on these levels can be seen in the inventory on the tracker (the focus icon)
+
 ### Randomize Elderbug Rewards
 Adds a egg shop like location to Elderbug, which requires lore items to get the items.
 A tablet is added next to Elderbug to preview the items he has.
 As "lore items" count every item from the pools above and the normal lore tablets/custom lore.
+The progress of lore amount can be seen in the inventory on the tracker (the focus icon)
 **You can only activate this if at least one pool of the above is randomized!**
 
 ### Randomize Shrine of Believers
@@ -110,6 +114,28 @@ Adds up to 28 lore tablets in the Shrine of Believers which can be destroyed to 
 These are bingo like goals that the player must solve. The reward is displayed when reading.
 Activating this will likely scarce shops.
 **Does NOT add items by itself!**
+The shrine goals currently can be:
+- Obtain Herrah
+- Obtain Lurien
+- Obtain Monomon
+- Kill Myla :(
+- SLUG IN TUB (Focus in a hotspring while you have Shape of Unn equipped)
+- Quote all Zote Precepts (this can be obtained for free. Why? Because fuck Zote)
+- Get All Grubs (unused if you choose to replace grubs with mimicks)
+- Get half of the grubs (unused if you choose to replace at least 23 grubs with mimicks)
+- Get killed by your own shade (unused if you play on steel soul)
+- Let a enemy drown in water (acid might also work, but that is untested)
+- Unlock all stags
+- Get all spells and talk with the vs Snail Shaman through all his dialogue (unused if you removed spell upgrades or replace junk with 1 geo)
+- Kill all ghosts besides Cloth.
+- "Spend" 10000 geo. Losing geo does also count.
+- Equip Longnail and Mark of Pride at the same time.
+- Bow while in a room with a nail master (except Sly)
+- Get scammed by Millibelle.
+- Kill Menderbug (currently unused)
+- Cast dive in Dirtmouth to sky dive into the well from at least the height of the king's pass entrance.
+
+(Yeah I know, those aren't even 28, but if someone want, they can expand on that.)
 
 ### Cursed Reading
 Randomizes the ability to read lore tablets includes the colo entry tablets as well as all "Point of Interest" locations and Menderbugs Diary.
