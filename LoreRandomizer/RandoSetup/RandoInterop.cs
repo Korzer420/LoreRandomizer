@@ -115,6 +115,8 @@ internal class RandoInterop
                 if (requestBuilder.gs.CursedSettings.MaximumGrubsReplacedByMimics >= 23)
                     viableTablets.Remove(HalfGrubsShrine);
             }
+            if (requestBuilder.gs.CursedSettings.ReplaceJunkWithOneGeo || requestBuilder.gs.CursedSettings.RemoveSpellUpgrades)
+                viableTablets.Remove(ShamanShrine);
 
             for (int i = 0; i < random.Next(1, viableTablets.Count); i++)
             {
