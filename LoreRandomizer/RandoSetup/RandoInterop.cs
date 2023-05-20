@@ -39,7 +39,7 @@ internal class RandoInterop
 
     private static void SetupTraveller(LogicManager logicManager, GenerationSettings generationSettings, ProgressionInitializer progressionInitializer)
     {
-        if (LoreRandomizer.RandoSettings.Enabled && LoreRandomizer.RandoSettings.RandomizeTravellerDialogues 
+        if (LoreRandomizer.RandoSettings.Enabled && LoreRandomizer.RandoSettings.RandomizeTravellerDialogues
             && LoreRandomizer.RandoSettings.TravellerOrder == Menu.TravellerBehaviour.None)
             foreach (Traveller traveller in Enum.GetValues(typeof(Traveller)))
                 progressionInitializer.Increments.Add(new(logicManager.GetTerm(traveller.ToString().ToUpper()), 10));
@@ -127,7 +127,7 @@ internal class RandoInterop
             }
         }
         if (LoreRandomizer.RandoSettings.CursedListening)
-        { 
+        {
             requestBuilder.AddItemByName(Listen_Ability);
             requestBuilder.EditItemRequest(Listen_Ability, info =>
             {
@@ -141,7 +141,7 @@ internal class RandoInterop
             });
         }
         if (LoreRandomizer.RandoSettings.CursedReading)
-        { 
+        {
             requestBuilder.AddItemByName(Read_Ability);
             requestBuilder.EditItemRequest(Read_Ability, info =>
             {
@@ -165,7 +165,7 @@ internal class RandoInterop
                     {
                         info.getItemDef = () => new()
                         {
-                            Name = loreTablet+"_Empowered",
+                            Name = loreTablet + "_Empowered",
                             MajorItem = false,
                             PriceCap = 1,
                             Pool = "Lore"
@@ -232,6 +232,17 @@ internal class RandoInterop
                     // Lock Bretta's house behind her dialogue item, rather than the location.
                     builder.DoLogicEdit(new("Rescued_Bretta", "BRETTA"));
                 }
+                else if (item == Dialogue_Sly)
+                {
+                    Term sly = builder.GetOrAddTerm("SLY");
+                    builder.AddItem(new MultiItem(item, new TermValue[]
+                        {
+                            new(loreTerm, 1),
+                            new(sly, 1)
+                        }));
+                    // Lock Sly's shop behind his dialogue item, rather than the location.
+                    builder.DoLogicEdit(new("Rescued_Sly", "SLY"));
+                }
                 else
                     builder.AddItem(new SingleItem(item, new(loreTerm, 1)));
         }
@@ -239,18 +250,18 @@ internal class RandoInterop
         {
             using Stream stream = ResourceHelper.LoadResource<LoreRandomizer>("Logic.DreamLogic.json");
             builder.DeserializeJson(LogicManagerBuilder.JsonType.Locations, stream);
-            
+
             foreach (string item in DreamItems)
-                if (item == Grimm_Summoner_Dream)
+                if (item == Dream_Dialogue_Grimm_Summoner)
                 {
-                    Term summoner = builder.GetOrAddTerm("Grimm_Summoner_Dream");
+                    Term summoner = builder.GetOrAddTerm(Dream_Dialogue_Grimm_Summoner);
                     builder.AddItem(new MultiItem(item, new TermValue[]
                         {
                             new(loreTerm, 1),
                             new(summoner, 1)
                         }));
                     // Lock grimm behind the grimm summoner dream dialogue, rather than the location.
-                    builder.DoLogicEdit(new("Nightmare_Lantern_Lit", "Grimmchild | Grimm_Summoner_Dream"));
+                    builder.DoLogicEdit(new("Nightmare_Lantern_Lit", "Grimmchild | " + Dream_Dialogue_Grimm_Summoner));
                 }
                 else
                     builder.AddItem(new SingleItem(item, new(loreTerm, 1)));
@@ -294,7 +305,7 @@ internal class RandoInterop
                     : 0;
             // Since traveller (including Hornet) only appear once a certain stage is reached, we need to modify the second hornet waypoint as well.
             if (LoreRandomizer.RandoSettings.TravellerOrder == Menu.TravellerBehaviour.Vanilla)
-            { 
+            {
                 builder.DoLogicEdit(new("Defeated_Hornet_2", "(ORIG) + HORNET>1"));
                 builder.DoLogicEdit(new("Defeated_Uumuu", "(ORIG) + QUIRREL>7"));
                 builder.DoLogicEdit(new("Rescued_Deepnest_Zote", "ZOTE>4"));
@@ -349,13 +360,13 @@ internal class RandoInterop
         if (ModHooks.GetMod("RandoSettingsManager") is Mod)
             HookRandoSettingsManager();
 
-        CondensedSpoilerLogger.AddCategory("Special Items", () => LoreRandomizer.RandoSettings.Enabled 
+        CondensedSpoilerLogger.AddCategory("Special Items", () => LoreRandomizer.RandoSettings.Enabled
         && (LoreRandomizer.RandoSettings.CursedListening | LoreRandomizer.RandoSettings.CursedReading), new()
         {
             Listen_Ability,
             Read_Ability
         });
-        CondensedSpoilerLogger.AddCategory("Important traveller level", () => LoreRandomizer.RandoSettings.Enabled && LoreRandomizer.RandoSettings.RandomizeTravellerDialogues 
+        CondensedSpoilerLogger.AddCategory("Important traveller level", () => LoreRandomizer.RandoSettings.Enabled && LoreRandomizer.RandoSettings.RandomizeTravellerDialogues
         && LoreRandomizer.RandoSettings.TravellerOrder == TravellerBehaviour.Vanilla, new()
         {
             Dialogue_Quirrel_Crossroads,

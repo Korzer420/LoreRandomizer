@@ -1,86 +1,106 @@
 [
     {
         "name": "Bretta",
-        "logic": "(LISTEN ? ANY) + (Fungus2_23 + (FULLCLAW + FULLDASH | FULLCLAW + FULLSUPERDASH | LEFTCLAW + WINGS | RIGHTCLAW + ENEMYPOGOS + WINGS | COMPLEXSKIPS + FULLCLAW + $SHADESKIP[2HITS] + SPELLAIRSTALL + $CASTSPELL[1,1,before:ROOMSOUL] + $TAKEDAMAGE[2]))"
+        "logic": "(LISTEN ? TRUE) + (Fungus2_23 + (FULLCLAW + FULLDASH | FULLCLAW + FULLSUPERDASH | LEFTCLAW + WINGS | RIGHTCLAW + ENEMYPOGOS + WINGS | COMPLEXSKIPS + FULLCLAW + $SHADESKIP[2HITS] + SPELLAIRSTALL + $CASTSPELL[1,1,before:ROOMSOUL] + $TAKEDAMAGE[2]))"
     },
     {
         "name": "Bardoon",
-        "logic": "(LISTEN ? ANY) + (Deepnest_East_04[left1] + (WINGS | (LEFTCLAW + LEFTDASH | RIGHTCLAW + RIGHTDASH) + ENEMYPOGOS) | Deepnest_East_04[right1] + (WINGS | ENEMYPOGOS +(LEFTCLAW + LEFTDASH | RIGHTCLAW + RIGHTDASH) + (FIREBALLSKIPS + FIREBALL | LEFTDASH)) | Deepnest_East_04[left2] + (WINGS + RIGHTSUPERDASH + (LEFTCLAW + LEFTDASH | RIGHTDASH) + ACIDSKIPS | ACID) + (WINGS | (LEFTCLAW | RIGHTCLAW) + ENEMYPOGOS))"
+        "logic": "(LISTEN ? TRUE) + (Deepnest_East_04[left1] + (WINGS | (LEFTCLAW + LEFTDASH | RIGHTCLAW + RIGHTDASH) + ENEMYPOGOS) | Deepnest_East_04[right1] + (WINGS | ENEMYPOGOS +(LEFTCLAW + LEFTDASH | RIGHTCLAW + RIGHTDASH) + (FIREBALLSKIPS + FIREBALL | LEFTDASH)) | Deepnest_East_04[left2] + (WINGS + RIGHTSUPERDASH + (LEFTCLAW + LEFTDASH | RIGHTDASH) + ACIDSKIPS | ACID) + (WINGS | (LEFTCLAW | RIGHTCLAW) + ENEMYPOGOS))"
     },
     {
         "name": "Vespa",
-        "logic": "(LISTEN ? ANY) + Hive_05[left1] + Defeated_Hive_Knight + DREAMNAIL"
+        "logic": "(LISTEN ? TRUE) + Hive_05[left1] + Defeated_Hive_Knight + DREAMNAIL"
     },
     {
         "name": "Mask_Maker",
-        "logic": "(LISTEN ? ANY) + Room_Mask_Maker[right1]"
+        "logic": "(LISTEN ? TRUE) + Room_Mask_Maker[right1]"
     },
     {
         "name": "Midwife",
-        "logic": "(LISTEN ? ANY) + (BREAKABLE_Deepnest41_BreakableWall ? ANY) + Deepnest_41[left2] + (LANTERN | DARKROOMS)"
+        "logic": "(LISTEN ? TRUE) + (BREAKABLE_Deepnest41_BreakableWall ? TRUE) + Deepnest_41[left2] + (LANTERN | DARKROOMS)"
     },
     {
         "name": "Gravedigger",
-        "logic": "(LISTEN ? ANY) + Town + DREAMNAIL"
+        "logic": "(LISTEN ? TRUE) + Town + DREAMNAIL"
     },
     {
         "name": "Poggy",
-        "logic": "(LISTEN ? ANY) + (Ruins_Elevator[left1] | Ruins_Elevator[left2]) + DREAMNAIL"
+        "logic": "(LISTEN ? TRUE) + (Ruins_Elevator[left1] | Ruins_Elevator[left2]) + DREAMNAIL"
     },
     {
         "name": "Joni",
-        "logic": "(LISTEN ? ANY) + Cliffs_05[left1] + DREAMNAIL"
+        "logic": "(LISTEN ? TRUE) + Cliffs_05[left1] + DREAMNAIL"
     },
     {
         "name": "Myla",
-        "logic": "(LISTEN ? ANY) + (Crossroads_45[left1] | Crossroads_45[right1])"
+        "logic": "(LISTEN ? TRUE) + (Crossroads_45[left1] | Crossroads_45[right1])"
     },
     {
         "name": "Emilitia",
-        "logic": "(LISTEN ? ANY) + (Ruins_House_03[left1] | (Ruins_House_03[left2] + (LEFTCLAW | RIGHTCLAW)))"
+        "logic": "(LISTEN ? TRUE) + (Ruins_House_03[left1] | (Ruins_House_03[left2] + (LEFTCLAW | RIGHTCLAW)))"
     },
     {
         "name": "Willoh",
-        "logic": "(LISTEN ? ANY) + Fungus2_34[right1]"
+        "logic": "(LISTEN ? TRUE) + Fungus2_34[right1]"
     },
     {
         "name": "Moss_Prophet",
-        "logic": "(LISTEN ? ANY) + ((Fungus3_39[left1] + (BREAKABLE_Fungus339_OneWayWall ? ANY)) | Fungus3_39[right1])"
+        "logic": "(LISTEN ? TRUE) + ((Fungus3_39[left1] + (BREAKABLE_Fungus339_OneWayWall ? TRUE)) | Fungus3_39[right1])"
     },
     {
         "name": "Fluke_Hermit",
-        "logic": "(LISTEN ? ANY) + (BREAKABLE_RoomGGShortcut_BreakableGrate ? ANY) + ((Room_GG_Shortcut[top1] | Room_GG_Shortcut[left1] + (LEFTCLAW + WINGS | RIGHTCLAW) + (RIGHTCLAW + WINGS | (WINGS + LEFTDASH | WINGS + LEFTSUPERDASH | SWIM) + (RIGHTCLAW + (RIGHTDASH | LEFTCLAW + (RIGHTSUPERDASH | ENEMYPOGOS))) | LEFTCLAW + RIGHTDASH + WINGS + PRECISEMOVEMENT)) + (SWIM | (FULLCLAW + RIGHTSUPERDASH + ACIDSKIPS)))"
+        "logic": "(LISTEN ? TRUE) + (BREAKABLE_RoomGGShortcut_BreakableGrate ? TRUE) + ((Room_GG_Shortcut[top1] | Room_GG_Shortcut[left1] + (LEFTCLAW + WINGS | RIGHTCLAW) + (RIGHTCLAW + WINGS | (WINGS + LEFTDASH | WINGS + LEFTSUPERDASH | SWIM) + (RIGHTCLAW + (RIGHTDASH | LEFTCLAW + (RIGHTSUPERDASH | ENEMYPOGOS))) | LEFTCLAW + RIGHTDASH + WINGS + PRECISEMOVEMENT)) + (SWIM | (FULLCLAW + RIGHTSUPERDASH + ACIDSKIPS)))"
     },
     {
         "name": "Grasshopper",
-        "logic": "(LISTEN ? ANY) + (Fungus1_24[left1] + (LEFTCLAW | RIGHTCLAW | WINGS) + DREAMNAIL)"
+        "logic": "(LISTEN ? TRUE) + (Fungus1_24[left1] + (LEFTCLAW | RIGHTCLAW | WINGS) + DREAMNAIL)"
     },
     {
         "name": "Marissa",
-        "logic": "(LISTEN ? ANY) + (Ruins_Bathhouse[door1] | Ruins_Bathhouse[right1]) + DREAMNAIL"
+        "logic": "(LISTEN ? TRUE) + (Ruins_Bathhouse[door1] | Ruins_Bathhouse[right1]) + DREAMNAIL"
     },
     {
         "name": "Queen",
-        "logic": "(LISTEN ? ANY) + Room_Queen[left1]"
+        "logic": "(LISTEN ? TRUE) + Room_Queen[left1]"
     },
     {
         "name": "Dung_Defender",
-        "logic": "(LISTEN ? ANY) + Defeated_Dung_Defender + (Waterways_05[bot1] + (LEFTCLAW | RIGHTCLAW | WINGS) | Waterways_05[bot2] | Waterways_05[right1])"
+        "logic": "(LISTEN ? TRUE) + Defeated_Dung_Defender + (Waterways_05[bot1] + (LEFTCLAW | RIGHTCLAW | WINGS) | Waterways_05[bot2] | Waterways_05[right1])"
     },
     {
         "name": "Menderbug_Diary",
-        "logic": "(READ ? ANY) + Room_Mender_House[left1]"
+        "logic": "(READ ? TRUE) + Room_Mender_House[left1]"
     },
     {
         "name": "Godseeker",
-        "logic": "(LISTEN ? ANY) + GG_Waterways + GODTUNERUNLOCK"
+        "logic": "(LISTEN ? TRUE) + GG_Waterways + GODTUNERUNLOCK"
     },
     {
         "name": "Hidden_Moth",
-        "logic": "(LISTEN ? ANY) + Access_Shrine"
+        "logic": "(LISTEN ? TRUE) + Access_Shrine"
     },
     {
         "name": "Millibelle",
-        "logic": "(LISTEN ? ANY) + Fungus3_35[right1]"
+        "logic": "(LISTEN ? TRUE) + Fungus3_35[right1]"
+    },
+    {
+        "name": "Sly_Talk",
+        "logic": "(LISTEN ? TRUE) + Room_ruinhouse[left1]"
+    },
+    {
+        "name": "Salubra_Talk",
+        "logic": "(LISTEN ? TRUE) + Room_Charm_Shop[left1]"
+    },
+    {
+        "name": "Iselda_Talk",
+        "logic": "(LISTEN ? TRUE) + Room_mapper[left1]"
+    },
+    {
+        "name": "Little_Fool",
+        "logic": "(LISTEN ? TRUE) + (Room_Colosseum_01[left1] | Room_Colosseum_01[bot1])"
+    },
+    {
+        "name": "Brumm",
+        "logic": "(LISTEN ? TRUE) + Grimm_Main_Tent[left1]"
     }
 ]

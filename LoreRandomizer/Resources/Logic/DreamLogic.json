@@ -74,5 +74,13 @@
     {
         "name": "Dream_Shield_Statue_Dream",
         "logic": "RestingGrounds_17[right1] + DREAMNAIL"
+    },
+    {
+        "name": "Key_Thief_Dream",
+        "logic": "(Abyss_20[top1] | Abyss_20[top2]) + DREAMNAIL"
+    },
+    {
+        "name": "Lighthouse_Keeper_Dream",
+        "logic": "Abyss_Lighthouse_room[left1] + DREAMNAIL"
     }
 ]
