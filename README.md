@@ -13,6 +13,7 @@ The focus is on NPC which mostly exists for lore purposes. After you obtained th
 This includes:
 - Bardoon
 - Bretta* (in Fungal Wastes)
+- Brumm (in the Grimm Tent)
 - Dung Defender (after the fight in his arena)
 - Emilitia
 - Fluke Hermit
@@ -20,7 +21,9 @@ This includes:
 - Gravedigger
 - Grasshopper (the ghosts next to Cornifer in QG)
 - Hidden Moth (in the Shrine of Believers)
+- Iselda (Talking from the right side)
 - Joni
+- Little Fool
 - Mask Maker
 - Marissa (<3)
 - Menderbug Diary
@@ -29,6 +32,8 @@ This includes:
 - Moss Prophet
 - Myla (Best girl <3)
 - Poggy (Ghost in the small elevator room to Pleasure House)
+- Salubra (Talking from the right side)
+- Sly* (in the ruins house)
 - The White Lady
 - Vespa (the ghost at Hive Knight)
 - Willoh
@@ -61,6 +66,8 @@ This includes:
 - Shriek Statue (By Abyss Shriek)
 - Shroom "King" Corpse
 - Snail Shaman Tomb (next to Soul Eater)
+- The corpse in the abyss lighthouse.
+- The corpse in the mawlek (where the simple key is located)
 
 Locations with a "*" have special properties:
 - Crystalized Shaman and Pale King: Spawn a shiny, if they have been destroyed. (Requires a room reload, if you forgot to check the dream nail dialogue first)
