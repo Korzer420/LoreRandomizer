@@ -1,17 +1,15 @@
 using ItemChanger;
 using KorzUtils.Helper;
-using LoreCore.Data;
 using LoreCore.Enums;
 using LoreCore.Locations;
 using LoreCore.Other;
 using LoreRandomizer.Menu;
 using LoreRandomizer.ModInterop;
 using Modding;
-using RandomizerCore;
+using RandomizerCore.Json;
 using RandomizerCore.Logic;
 using RandomizerCore.LogicItems;
 using RandomizerMod.Logging;
-using RandomizerMod.RandomizerData;
 using RandomizerMod.RC;
 using RandomizerMod.Settings;
 using RandoSettingsManager;
@@ -33,7 +31,8 @@ internal class RandoInterop
     {
         textWriter.WriteLine("Lore Randomizer settings");
         using Newtonsoft.Json.JsonTextWriter jsonTextWriter = new(textWriter) { CloseOutput = false, };
-        JsonUtil._js.Serialize(jsonTextWriter, LoreRandomizer.RandoSettings);
+       
+        RandomizerMod.RandomizerData.JsonUtil._js.Serialize(jsonTextWriter, LoreRandomizer.RandoSettings);
         textWriter.WriteLine();
     }
 
@@ -97,6 +96,7 @@ internal class RandoInterop
                         maxElderbugCost += PointOfInterestItems.Length;
                     if (LoreRandomizer.RandoSettings.UseCustomLore || requestBuilder.gs.PoolSettings.LoreTablets)
                         maxElderbugCost += LoreTablets.Length;
+                    maxElderbugCost = Math.Min(maxElderbugCost, 90);
                     location.AddCost(new SimpleCost(term, random.Next(1, maxElderbugCost)));
                 };
             });
@@ -197,49 +197,50 @@ internal class RandoInterop
     {
         if (!LoreRandomizer.RandoSettings.Enabled)
             return;
+        JsonLogicFormat jsonLogicFormat =  new();
         if (LoreRandomizer.RandoSettings.CursedListening)
         {
             Term listenTerm = builder.GetOrAddTerm("LISTEN");
             builder.AddItem(new BoolItem(Listen_Ability, listenTerm));
             using Stream listenStream = ResourceHelper.LoadResource<LoreRandomizer>("Logic.ListenLogic.json");
-            builder.DeserializeJson(LogicManagerBuilder.JsonType.LogicEdit, listenStream);
+            builder.DeserializeFile(LogicFileType.LogicEdit, jsonLogicFormat, listenStream);
         }
         if (LoreRandomizer.RandoSettings.CursedReading)
         {
             Term readTerm = builder.GetOrAddTerm("READ");
             builder.AddItem(new BoolItem(Read_Ability, readTerm));
             using Stream readStream = ResourceHelper.LoadResource<LoreRandomizer>("Logic.ReadLogic.json");
-            builder.DeserializeJson(LogicManagerBuilder.JsonType.LogicEdit, readStream);
+            builder.DeserializeFile(LogicFileType.LogicEdit, jsonLogicFormat, readStream);
         }
         using Stream waypointStream = ResourceHelper.LoadResource<LoreRandomizer>("Waypoints.json");
-        builder.DeserializeJson(LogicManagerBuilder.JsonType.Waypoints, waypointStream);
+        builder.DeserializeFile(LogicFileType.Waypoints, jsonLogicFormat, waypointStream);
         Term loreTerm = builder.GetOrAddTerm("LORE");
         if (LoreRandomizer.RandoSettings.RandomizeElderbugRewards)
             builder.AddLogicDef(new("Elderbug_Shop", "Town"));
         if (LoreRandomizer.RandoSettings.RandomizeNpc)
         {
             using Stream stream = ResourceHelper.LoadResource<LoreRandomizer>("Logic.NpcLogic.json");
-            builder.DeserializeJson(LogicManagerBuilder.JsonType.Locations, stream);
+            builder.DeserializeFile(LogicFileType.Locations, jsonLogicFormat, stream);
             foreach (string item in NpcItems)
                 if (item == Dialogue_Bretta)
                 {
                     Term bretta = builder.GetOrAddTerm("BRETTA");
-                    builder.AddItem(new MultiItem(item, new TermValue[]
-                        {
+                    builder.AddItem(new MultiItem(item,
+                        [
                             new(loreTerm, 1),
                             new(bretta, 1)
-                        }));
+                        ]));
                     // Lock Bretta's house behind her dialogue item, rather than the location.
                     builder.DoLogicEdit(new("Rescued_Bretta", "BRETTA"));
                 }
                 else if (item == Dialogue_Sly)
                 {
                     Term sly = builder.GetOrAddTerm("SLY");
-                    builder.AddItem(new MultiItem(item, new TermValue[]
-                        {
+                    builder.AddItem(new MultiItem(item,
+                        [
                             new(loreTerm, 1),
                             new(sly, 1)
-                        }));
+                        ]));
                     // Lock Sly's shop behind his dialogue item, rather than the location.
                     builder.DoLogicEdit(new("Rescued_Sly", "SLY"));
                 }
@@ -249,17 +250,17 @@ internal class RandoInterop
         if (LoreRandomizer.RandoSettings.RandomizeDreamNailDialogue)
         {
             using Stream stream = ResourceHelper.LoadResource<LoreRandomizer>("Logic.DreamLogic.json");
-            builder.DeserializeJson(LogicManagerBuilder.JsonType.Locations, stream);
+            builder.DeserializeFile(LogicFileType.Locations, jsonLogicFormat, stream);
 
             foreach (string item in DreamItems)
                 if (item == Dream_Dialogue_Grimm_Summoner)
                 {
                     Term summoner = builder.GetOrAddTerm(Dream_Dialogue_Grimm_Summoner);
-                    builder.AddItem(new MultiItem(item, new TermValue[]
-                        {
+                    builder.AddItem(new MultiItem(item,
+                        [
                             new(loreTerm, 1),
                             new(summoner, 1)
-                        }));
+                        ]));
                     // Lock grimm behind the grimm summoner dream dialogue, rather than the location.
                     builder.DoLogicEdit(new("Nightmare_Lantern_Lit", "Grimmchild | " + Dream_Dialogue_Grimm_Summoner));
                 }
@@ -271,7 +272,7 @@ internal class RandoInterop
         if (LoreRandomizer.RandoSettings.RandomizePointOfInterest)
         {
             using Stream stream = ResourceHelper.LoadResource<LoreRandomizer>("Logic.PointOfInterestLogic.json");
-            builder.DeserializeJson(LogicManagerBuilder.JsonType.Locations, stream);
+            builder.DeserializeFile(LogicFileType.Locations, jsonLogicFormat, stream);
             foreach (string item in PointOfInterestItems)
                 builder.AddItem(new SingleItem(item, new(loreTerm, 1)));
         }
@@ -280,7 +281,7 @@ internal class RandoInterop
             foreach (Traveller traveller in Enum.GetValues(typeof(Traveller)))
                 builder.GetOrAddTerm(traveller.ToString().ToUpper());
             using Stream stream = ResourceHelper.LoadResource<LoreRandomizer>("Logic.TravellerLogic.json");
-            builder.DeserializeJson(LogicManagerBuilder.JsonType.Locations, stream);
+            builder.DeserializeFile(LogicFileType.Locations, jsonLogicFormat, stream);
             foreach (string item in TravellerItems)
             {
                 string traveller = "QUIRREL";
@@ -293,11 +294,11 @@ internal class RandoInterop
                 else if (item.Contains("Hornet"))
                     traveller = "HORNET";
 
-                builder.AddItem(new MultiItem(item, new TermValue[]
-                {
+                builder.AddItem(new MultiItem(item,
+                [
                     new(loreTerm, 1),
                     new(builder.GetOrAddTerm(traveller), 1)
-                }));
+                ]));
             }
             foreach (Traveller traveller in TravellerLocation.Stages.Keys.ToList())
                 TravellerLocation.Stages[traveller] = LoreRandomizer.RandoSettings.TravellerOrder == Menu.TravellerBehaviour.None
@@ -314,7 +315,7 @@ internal class RandoInterop
         if (LoreRandomizer.RandoSettings.RandomizeShrineOfBelievers)
         {
             using Stream stream = ResourceHelper.LoadResource<LoreRandomizer>("Logic.ShrineLogic.json");
-            builder.DeserializeJson(LogicManagerBuilder.JsonType.Locations, stream);
+            builder.DeserializeFile(LogicFileType.Locations, jsonLogicFormat, stream);
 
             // If grub tolerance is used, the internal counter is set to a negative value, making it impossible to reach 46.
             // Because of this, we set the max and half amount via the tolerance instead.

@@ -33,7 +33,7 @@
     },
     {
         "name": "Cloth_Basin",
-        "logic": "(LISTEN ? ANY) + (CLOTH + (Abyss_17[top1] + (LEFTDASH | WINGS | LEFTSUPERDASH) + (LEFTCLAW | RIGHTCLAW | WINGS | DAMAGEBOOSTS + (MASKSHARDS>7 | Can_Bench + (Fragile_Heart + Can_Bench + Can_Repair_Fragile_Charms | Fragile_Heart>1 + Can_Bench | Lifeblood_Heart + NOTCHES>$SafeNotchCost[8] | Lifeblood_Core | Joni's_Blessing + NOTCHES>$SafeNotchCost[27])))))"
+        "logic": "(LISTEN ? ANY) + (CLOTH + (Abyss_17[top1] + (LEFTDASH | WINGS | LEFTSUPERDASH) + (LEFTCLAW | RIGHTCLAW | WINGS | DAMAGEBOOSTS + (MASKSHARDS>7 | Can_Bench/ + (Fragile_Heart + Can_Bench/ + Can_Repair_Fragile_Charms | Fragile_Heart>1 + Can_Bench/ | Lifeblood_Heart + NOTCHES>$SafeNotchCost[8] | Lifeblood_Core | Joni's_Blessing + NOTCHES>$SafeNotchCost[27])))))"
     },
     {
         "name": "Cloth_Garden",
@@ -97,7 +97,7 @@
     },
     {
         "name": "Quirrel_After_Monomon",
-        "logic": "(LISTEN ? ANY) + (QUIRREL>7 + (Fungus3_archive_02[top1] + DREAMNAIL + Defeated_Uumuu + (ACID + LEFTCLAW | ACID + RIGHTCLAW + WINGS | LEFTSUPERDASH + LEFTCLAW + RIGHTCLAW | LEFTSUPERDASH + RIGHTCLAW + WINGS | RIGHTSUPERDASH + LEFTCLAW + WINGS | LEFTCLAW + RIGHTCLAW + WINGS + Sharp_Shadow + (LEFTDASH>1 | RIGHTDASH>1) + LEFTDASH + Can_Bench + Sharp_Shadow + (LEFTDASH>1 | RIGHTDASH>1) + RIGHTDASH + Can_Bench + FIREBALL + FIREBALLSKIPS + ACIDSKIPS + COMPLEXSKIPS)))"
+        "logic": "(LISTEN ? ANY) + (QUIRREL>7 + (Fungus3_archive_02[top1] + DREAMNAIL + Defeated_Uumuu + (ACID + LEFTCLAW | ACID + RIGHTCLAW + WINGS | LEFTSUPERDASH + LEFTCLAW + RIGHTCLAW | LEFTSUPERDASH + RIGHTCLAW + WINGS | RIGHTSUPERDASH + LEFTCLAW + WINGS | LEFTCLAW + RIGHTCLAW + WINGS + Sharp_Shadow + (LEFTDASH>1 | RIGHTDASH>1) + LEFTDASH + Can_Bench/ + Sharp_Shadow + (LEFTDASH>1 | RIGHTDASH>1) + RIGHTDASH + Can_Bench/ + FIREBALL + FIREBALLSKIPS + ACIDSKIPS + COMPLEXSKIPS)))"
     },
     {
         "name": "Quirrel_Blue_Lake",
