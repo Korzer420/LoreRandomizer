@@ -96,7 +96,6 @@ internal class RandoInterop
                         maxElderbugCost += PointOfInterestItems.Length;
                     if (LoreRandomizer.RandoSettings.UseCustomLore || requestBuilder.gs.PoolSettings.LoreTablets)
                         maxElderbugCost += LoreTablets.Length;
-                    maxElderbugCost = Math.Min(maxElderbugCost, 90);
                     location.AddCost(new SimpleCost(term, random.Next(1, maxElderbugCost)));
                 };
             });
@@ -214,7 +213,7 @@ internal class RandoInterop
         }
         using Stream waypointStream = ResourceHelper.LoadResource<LoreRandomizer>("Waypoints.json");
         builder.DeserializeFile(LogicFileType.Waypoints, jsonLogicFormat, waypointStream);
-        Term loreTerm = builder.GetOrAddTerm("LORE");
+        Term loreTerm = builder.GetOrAddTerm("LORE", TermType.Int);
         if (LoreRandomizer.RandoSettings.RandomizeElderbugRewards)
             builder.AddLogicDef(new("Elderbug_Shop", "Town"));
         if (LoreRandomizer.RandoSettings.RandomizeNpc)
