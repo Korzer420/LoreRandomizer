@@ -1,3 +1,4 @@
+using ItemChanger;
 using RandomizerMod.RC;
 
 namespace LoreRandomizer;
@@ -21,6 +22,18 @@ internal static class Extensions
             });
         }
         foreach (string location in locations)
+        { 
             builder.AddLocationByName(location);
+            builder.EditLocationRequest(location, info =>
+            {
+                info.getLocationDef = () => new()
+                {
+                    Name = location,
+                    SceneName = Finder.GetLocation(location).sceneName,
+                    FlexibleCount = false,
+                    AdditionalProgressionPenalty = false
+                };
+            });
+        }
     }
 }

@@ -105,6 +105,7 @@ internal class RandoInterop
         {
             System.Random random = new(requestBuilder.gs.Seed);
             List<string> viableTablets = ShrineLocation.ShrineLocations.ToList();
+
             // Certain shrines don't appear in some settings.
             if (requestBuilder.gs.MiscSettings.SteelSoul)
                 viableTablets.Remove(ShadeKillShrine);
@@ -116,6 +117,22 @@ internal class RandoInterop
             }
             if (requestBuilder.gs.CursedSettings.ReplaceJunkWithOneGeo || requestBuilder.gs.CursedSettings.RemoveSpellUpgrades)
                 viableTablets.Remove(ShamanShrine);
+
+            bool ghostEssenceUsed = false;
+            foreach (StageBuilder stage in requestBuilder.Stages)
+                foreach (ItemGroupBuilder itemGroup in stage.Groups.Where(x => x is ItemGroupBuilder).Select(x => x as ItemGroupBuilder))
+                {
+                    if (ghostEssenceUsed)
+                        break;
+                    foreach (string item in itemGroup.Items.EnumerateDistinct())
+                        if (item.StartsWith("Ghost_Essence"))
+                        {
+                            ghostEssenceUsed = true;
+                            break;
+                        }
+                }
+            if (ghostEssenceUsed)
+                viableTablets.Remove(GenocideShrine);
 
             for (int i = 0; i < random.Next(1, viableTablets.Count); i++)
             {
@@ -299,10 +316,6 @@ internal class RandoInterop
                     new(builder.GetOrAddTerm(traveller), 1)
                 ]));
             }
-            foreach (Traveller traveller in TravellerLocation.Stages.Keys.ToList())
-                TravellerLocation.Stages[traveller] = LoreRandomizer.RandoSettings.TravellerOrder == Menu.TravellerBehaviour.None
-                    ? 10
-                    : 0;
             // Since traveller (including Hornet) only appear once a certain stage is reached, we need to modify the second hornet waypoint as well.
             if (LoreRandomizer.RandoSettings.TravellerOrder == Menu.TravellerBehaviour.Vanilla)
             {

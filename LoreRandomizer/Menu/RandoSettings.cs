@@ -1,3 +1,5 @@
+using MenuChanger.Attributes;
+
 namespace LoreRandomizer.Menu;
 
 public class RandoSettings
@@ -6,6 +8,7 @@ public class RandoSettings
 
     public bool Enabled { get; set; }
 
+    [MenuLabel("Use custom sprites + names for lore tablets")]
     public bool UseCustomLore { get; set; }
 
     public bool RandomizeNpc { get; set; }

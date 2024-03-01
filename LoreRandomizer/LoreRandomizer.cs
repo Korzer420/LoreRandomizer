@@ -1,3 +1,6 @@
+using ItemChanger;
+using LoreCore.Enums;
+using LoreCore.Modules;
 using LoreRandomizer.Menu;
 using LoreRandomizer.RandoSetup;
 using LoreRandomizer.SaveManagement;
@@ -17,7 +20,7 @@ public class LoreRandomizer : Mod, IGlobalSettings<GlobalSaveData>
 
     public bool GenerateLoreTablets { get; set; }
 
-    public override string GetVersion() => "0.2.2.0";
+    public override string GetVersion() => "0.3.0.0";
 
     #endregion
 
@@ -36,6 +39,13 @@ public class LoreRandomizer : Mod, IGlobalSettings<GlobalSaveData>
         orig(self, permadeathMode, bossRushMode);
         if (GenerateLoreTablets)
             LoreCore.LoreCore.Instance.CreateVanillaCustomLore();
+        if (RandomizerMod.RandomizerMod.IsRandoSave && RandoSettings.Enabled 
+            && RandoSettings.RandomizeTravellerDialogues && RandoSettings.TravellerOrder == TravellerBehaviour.None)
+        {
+            TravellerControlModule module = ItemChangerMod.Modules.GetOrAdd<TravellerControlModule>();
+            foreach (Traveller traveller in module.Stages.Keys)
+                module.Stages[traveller] = 10;
+        }
     }
 
     public void OnLoadGlobal(GlobalSaveData s)
