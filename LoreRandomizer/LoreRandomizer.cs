@@ -1,10 +1,12 @@
 using ItemChanger;
+using KorzUtils.Helper;
 using LoreCore.Enums;
 using LoreCore.Modules;
 using LoreRandomizer.Menu;
 using LoreRandomizer.RandoSetup;
 using LoreRandomizer.SaveManagement;
 using Modding;
+using System.Linq;
 
 namespace LoreRandomizer;
 
@@ -20,7 +22,7 @@ public class LoreRandomizer : Mod, IGlobalSettings<GlobalSaveData>
 
     public bool GenerateLoreTablets { get; set; }
 
-    public override string GetVersion() => "0.3.0.0";
+    public override string GetVersion() => "0.3.1.0";
 
     #endregion
 
@@ -31,19 +33,19 @@ public class LoreRandomizer : Mod, IGlobalSettings<GlobalSaveData>
         Instance = this;
         ConnectionMenu.AttachMenu();
         RandoInterop.Initialize();
-        On.GameManager.StartNewGame += GameManager_StartNewGame;
+        On.UIManager.StartNewGame += UIManager_StartNewGame;
     }
 
-    private void GameManager_StartNewGame(On.GameManager.orig_StartNewGame orig, GameManager self, bool permadeathMode, bool bossRushMode)
+    private void UIManager_StartNewGame(On.UIManager.orig_StartNewGame orig, UIManager self, bool permaDeath, bool bossRush)
     {
-        orig(self, permadeathMode, bossRushMode);
+        orig(self, permaDeath, bossRush);
         if (GenerateLoreTablets)
             LoreCore.LoreCore.Instance.CreateVanillaCustomLore();
-        if (RandomizerMod.RandomizerMod.IsRandoSave && RandoSettings.Enabled 
+        if (RandomizerMod.RandomizerMod.IsRandoSave && RandoSettings.Enabled
             && RandoSettings.RandomizeTravellerDialogues && RandoSettings.TravellerOrder == TravellerBehaviour.None)
         {
             TravellerControlModule module = ItemChangerMod.Modules.GetOrAdd<TravellerControlModule>();
-            foreach (Traveller traveller in module.Stages.Keys)
+            foreach (Traveller traveller in module.Stages.Keys.ToList())
                 module.Stages[traveller] = 10;
         }
     }
