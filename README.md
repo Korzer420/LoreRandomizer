@@ -42,6 +42,7 @@ Npc marked with "*" have special properties:
 - Bretta: Her house unlocks after obtaining her DIALOGUE ITEM, not talking to her in Fungal Wastes.
 - Godseeker: Requires a room reload after freeing her to be able to obtain the item.
 - Millibelle: Will not talk to you if you have Grimmchild equip (Vanilla behaviour?)
+- Sly: His shop unlocks after obtaining his DIALOGUE ITEM, not talking to him in Crossroads.
 
 **Ghost NPC are killable even if their check hasn't been obtained yet. Reloading the room will spawn a shiny in their place then.**
 
