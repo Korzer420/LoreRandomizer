@@ -13,7 +13,7 @@
   },
   {
     "name": "Full_Stag-Shrine",
-    "logic": "Access_Shrine + (READ ? ANY) + STAGS>8"
+    "logic": "Access_Shrine + (READ ? ANY) + STAGS>9"
   },
   {
     "name": "Genocide-Shrine",
