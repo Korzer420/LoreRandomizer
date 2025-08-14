@@ -5,6 +5,7 @@ using MenuChanger.MenuElements;
 using MenuChanger.MenuPanels;
 using RandomizerMod.Menu;
 using System;
+using System.Linq;
 
 namespace LoreRandomizer.Menu;
 
@@ -100,7 +101,8 @@ public class ConnectionMenu
         {
             _mainPage = new("Lore Rando", previousPage);
             _menuElementFactory = new(_mainPage, LoreRandomizer.Instance.Settings);
-            new VerticalItemPanel(_mainPage, new(0f, 450f), 80f, true, _menuElementFactory.Elements);
+            new VerticalItemPanel(_mainPage, new(0f, 450f), 80f, true, _menuElementFactory.Elements.Take(_menuElementFactory.Elements.Length - 2).ToArray());
+            new GridItemPanel(_mainPage, new(0, -350f), 2, 0, 400, false, _menuElementFactory.Elements.Skip(_menuElementFactory.Elements.Length - 2).ToArray());
             for (int i = 2; i < 6; i++)
                 _menuElementFactory.Elements[i].SelfChanged += CheckIfElderbugPossible;
             if (!LoreRandomizer.Instance.Settings.RandomizeTravellerDialogues)

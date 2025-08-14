@@ -28,6 +28,9 @@
         <Reference Include="Assembly-CSharp">
           <HintPath>$(HollowKnightRefs)\Assembly-CSharp.dll</HintPath>
         </Reference>
+        <Reference Include="ExtraRando">
+          <HintPath>..\..\..\Program Files\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\Mods\Extra Rando\ExtraRando.dll</HintPath>
+        </Reference>
         <Reference Include="LoreCore">
           <HintPath>$(HollowKnightRefs)\Mods\LoreCore\LoreCore.dll</HintPath>
         </Reference>

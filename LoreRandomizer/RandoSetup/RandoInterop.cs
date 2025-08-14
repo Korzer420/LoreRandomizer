@@ -142,6 +142,25 @@ internal class RandoInterop
                 ShrineLocation.SelectedTablets.Add(pickedLocation);
             }
         }
+        
+        if (LoreRandomizer.RandoSettings.AddZotePrecepts)
+        {
+            for (int i = 1; i < 58; i++)
+            {
+                string itemName = string.Format(Zote_Precept, i);
+                requestBuilder.AddItemByName(itemName);
+                requestBuilder.EditItemRequest(itemName, info =>
+                {
+                    info.getItemDef = () => new()
+                    {
+                        MajorItem = false,
+                        Name = itemName,
+                        Pool = "Lore",
+                        PriceCap = 10 * i
+                    };
+                });
+            }
+        }
         if (LoreRandomizer.RandoSettings.CursedListening)
         {
             requestBuilder.AddItemByName(Listen_Ability);
@@ -341,6 +360,13 @@ internal class RandoInterop
         else if (settings.PoolSettings.LoreTablets)
             foreach (string item in LoreTablets)
                 builder.AddItem(new SingleItem(item, new(loreTerm, 1)));
+
+        if (LoreRandomizer.RandoSettings.AddZotePrecepts)
+        {
+            Term preceptTerm = builder.GetOrAddTerm("PRECEPTS", TermType.Int);
+            for (int i = 1; i < 58; i++)
+                builder.AddItem(new MultiItem(string.Format(Zote_Precept, i), [ new(loreTerm, 1), new(preceptTerm, 1)]));
+        }
     }
 
     private static bool GetCost(LogicCost logicCost, out Cost cost)

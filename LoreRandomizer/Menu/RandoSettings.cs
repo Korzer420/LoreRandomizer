@@ -8,7 +8,7 @@ public class RandoSettings
 
     public bool Enabled { get; set; }
 
-    [MenuLabel("Use custom sprites + names for lore tablets")]
+    [MenuLabel("Use custom sprites for lore tablets")]
     public bool UseCustomLore { get; set; }
 
     public bool RandomizeNpc { get; set; }
@@ -24,6 +24,8 @@ public class RandoSettings
     public bool RandomizeElderbugRewards { get; set; }
 
     public bool RandomizeShrineOfBelievers { get; set; }
+
+    public bool AddZotePrecepts { get; set; }
 
     public bool CursedReading { get; set; }
 
