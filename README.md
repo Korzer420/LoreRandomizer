@@ -146,6 +146,9 @@ The shrine goals currently can be:
 
 (Yeah I know, those aren't even 28, but if someone want, they can expand on that.)
 
+### Add Zote Precepts
+Adds all 57 precepts as individual items. **Adds no location!**
+
 ### Cursed Reading
 Randomizes the ability to read lore tablets includes the colo entry tablets as well as all "Point of Interest" locations and Menderbugs Diary.
 The mod tries to display a message that the player can't read when they try. If that fails the interaction is removed entirely.
@@ -184,5 +187,7 @@ This mod is the (rando only) successor to Lore Master and not compatible with it
 - Adds the reading and listening ability to the log if used.
 - Adds the traveller item locations to the log if randomize traveller is used and the travel order is "Vanilla".
 
+### Extra Rando
+- Adds two victory conditions: Lore and Precepts.
 ### RandoSettingsManager
 - Supported.
