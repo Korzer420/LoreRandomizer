@@ -31,7 +31,7 @@ public class PreceptVictoryCondition : IVictoryCondition
 
     private string PowerLoreItem_AcquirePowerItem(string key, string originalText)
     {
-        if (key.StartsWith("PRECEPT_"))
+        if (key?.StartsWith("PRECEPT_") == true)
         {
             CurrentAmount++;
             this.CheckForEnding();

@@ -5,7 +5,7 @@
         <TargetFramework>net472</TargetFramework>
         <RootNamespace>LoreRandomizer</RootNamespace>
         <AssemblyTitle>LoreRandomizer</AssemblyTitle>
-        <AssemblyVersion>0.3.2.0</AssemblyVersion>
+        <AssemblyVersion>0.4.1.0</AssemblyVersion>
         <Deterministic>true</Deterministic>
         <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
         <LangVersion>latest</LangVersion>
@@ -17,7 +17,7 @@
         <ExportDir>bin\Publish</ExportDir>
         <GenerateDocumentationFile>True</GenerateDocumentationFile>
         <DocumentationFile></DocumentationFile>
-        <FileVersion>1.0.0.0</FileVersion>
+        <FileVersion>0.4.1.0</FileVersion>
     </PropertyGroup>
 
     <ItemGroup>

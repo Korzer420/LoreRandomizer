@@ -22,7 +22,7 @@ public class LoreRandomizer : Mod, IGlobalSettings<GlobalSaveData>
 
     public bool GenerateLoreTablets { get; set; }
 
-    public override string GetVersion() => "0.4.0.0";
+    public override string GetVersion() => "0.4.1.0";
 
     #endregion
 
