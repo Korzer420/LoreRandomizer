@@ -189,5 +189,6 @@ This mod is the (rando only) successor to Lore Master and not compatible with it
 
 ### Extra Rando
 - Adds two victory conditions: Lore and Precepts.
+- 
 ### RandoSettingsManager
 - Supported.
