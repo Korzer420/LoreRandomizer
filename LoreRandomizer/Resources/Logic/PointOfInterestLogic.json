@@ -49,7 +49,7 @@
   },
   {
     "name": "Xero_Grave",
-    "logic": "(READ ? ANY) + (((RestingGrounds_02[left1] | RestingGrounds_02[right1] | RestingGrounds_02[bot1]) + (ENEMYPOGOS | RIGHTCLAW | LEFTCLAW | WINGS | RIGHTSUPERDASH)) | RestingGrounds_02[top1])"
+    "logic": "(READ ? ANY) + (RestingGrounds_02[top1] | RestingGrounds_02 + (ANYCLAW | WINGS | RIGHTSUPERDASH | BACKGROUNDPOGOS))"
   },
   {
     "name": "Elder_Hu_Grave",
