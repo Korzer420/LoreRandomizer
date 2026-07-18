@@ -5,19 +5,18 @@
         <TargetFramework>net472</TargetFramework>
         <RootNamespace>LoreRandomizer</RootNamespace>
         <AssemblyTitle>LoreRandomizer</AssemblyTitle>
-        <AssemblyVersion>0.4.1.0</AssemblyVersion>
+        <AssemblyVersion>0.4.2.0</AssemblyVersion>
         <Deterministic>true</Deterministic>
         <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
         <LangVersion>latest</LangVersion>
     </PropertyGroup>
 
     <PropertyGroup>
-        <HollowKnightRefs>E:/Program Files/Steam/steamapps/common/Hollow Knight/hollow_knight_Data/Managed/</HollowKnightRefs>
-        <DependencyPath>E:\HK Mod</DependencyPath>
+        <HollowKnightRefs>C:\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed</HollowKnightRefs>
         <ExportDir>bin\Publish</ExportDir>
         <GenerateDocumentationFile>True</GenerateDocumentationFile>
         <DocumentationFile></DocumentationFile>
-        <FileVersion>0.4.1.0</FileVersion>
+        <FileVersion>0.4.2.0</FileVersion>
     </PropertyGroup>
 
     <ItemGroup>
@@ -29,7 +28,7 @@
           <HintPath>$(HollowKnightRefs)\Assembly-CSharp.dll</HintPath>
         </Reference>
         <Reference Include="ExtraRando">
-          <HintPath>..\..\..\Program Files\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\Mods\Extra Rando\ExtraRando.dll</HintPath>
+          <HintPath>$(HollowKnightRefs)\Mods\Extra Rando\ExtraRando.dll</HintPath>
         </Reference>
         <Reference Include="LoreCore">
           <HintPath>$(HollowKnightRefs)\Mods\LoreCore\LoreCore.dll</HintPath>
