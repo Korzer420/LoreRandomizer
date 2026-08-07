@@ -31,7 +31,7 @@ internal class RandoInterop
     {
         textWriter.WriteLine("Lore Randomizer settings");
         using Newtonsoft.Json.JsonTextWriter jsonTextWriter = new(textWriter) { CloseOutput = false, };
-       
+
         RandomizerMod.RandomizerData.JsonUtil._js.Serialize(jsonTextWriter, LoreRandomizer.RandoSettings);
         textWriter.WriteLine();
     }
@@ -142,7 +142,7 @@ internal class RandoInterop
                 ShrineLocation.SelectedTablets.Add(pickedLocation);
             }
         }
-        
+
         if (LoreRandomizer.RandoSettings.AddZotePrecepts)
         {
             for (int i = 1; i < 58; i++)
@@ -232,12 +232,21 @@ internal class RandoInterop
     {
         if (!LoreRandomizer.RandoSettings.Enabled)
             return;
-        JsonLogicFormat jsonLogicFormat =  new();
+        JsonLogicFormat jsonLogicFormat = new();
         if (LoreRandomizer.RandoSettings.CursedListening)
         {
             Term listenTerm = builder.GetOrAddTerm("LISTEN");
             builder.AddItem(new BoolItem(Listen_Ability, listenTerm));
             using Stream listenStream = ResourceHelper.LoadResource<LoreRandomizer>("Logic.ListenLogic.json");
+
+            // Items on Seer are only affected by listening if nothing is randomized and the locations doesn't exist.
+            if (!settings.PoolSettings.Skills
+                && !settings.PoolSettings.VesselFragments
+                && !settings.PoolSettings.MaskShards
+                && !settings.PoolSettings.Relics
+                && !settings.PoolSettings.PaleOre
+                && !settings.PoolSettings.Charms)
+                builder.DoLogicEdit(new("Seer", "(ORIG) + LISTEN"));
             builder.DeserializeFile(LogicFileType.LogicEdit, jsonLogicFormat, listenStream);
         }
         if (LoreRandomizer.RandoSettings.CursedReading)
@@ -365,7 +374,7 @@ internal class RandoInterop
         {
             Term preceptTerm = builder.GetOrAddTerm("PRECEPTS", TermType.Int);
             for (int i = 1; i < 58; i++)
-                builder.AddItem(new MultiItem(string.Format(Zote_Precept, i), [ new(loreTerm, 1), new(preceptTerm, 1)]));
+                builder.AddItem(new MultiItem(string.Format(Zote_Precept, i), [new(loreTerm, 1), new(preceptTerm, 1)]));
         }
     }
 
@@ -400,14 +409,14 @@ internal class RandoInterop
             HookRandoSettingsManager();
 
         CondensedSpoilerLogger.AddCategory("Special Items", () => LoreRandomizer.RandoSettings.Enabled
-        && (LoreRandomizer.RandoSettings.CursedListening | LoreRandomizer.RandoSettings.CursedReading), new()
-        {
+        && (LoreRandomizer.RandoSettings.CursedListening || LoreRandomizer.RandoSettings.CursedReading),
+        [
             Listen_Ability,
             Read_Ability
-        });
+        ]);
         CondensedSpoilerLogger.AddCategory("Important traveller level", () => LoreRandomizer.RandoSettings.Enabled && LoreRandomizer.RandoSettings.RandomizeTravellerDialogues
-        && LoreRandomizer.RandoSettings.TravellerOrder == TravellerBehaviour.Vanilla, new()
-        {
+        && LoreRandomizer.RandoSettings.TravellerOrder == TravellerBehaviour.Vanilla,
+        [
             Dialogue_Quirrel_Crossroads,
             Dialogue_Quirrel_Greenpath,
             Dialogue_Quirrel_Queen_Station,
@@ -430,7 +439,7 @@ internal class RandoInterop
             Dialogue_Hornet_Abyss,
             Dialogue_Hornet_Deepnest,
             Dialogue_Hornet_Temple
-        });
+        ]);
     }
 
     private static void HookRandoSettingsManager()

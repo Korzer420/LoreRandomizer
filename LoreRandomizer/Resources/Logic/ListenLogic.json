@@ -88,10 +88,6 @@
         "logic": "(ORIG) + LISTEN"
     },
     {
-        "name": "Boss_Essence-Lost_Kin",
-        "logic": "(ORIG) + LISTEN"
-    },
-    {
         "name": "Queen's_Gardens_Map",
         "logic": "(ORIG) + LISTEN"
     },
@@ -105,10 +101,6 @@
     },
     {
         "name": "Deepnest_Map-Right",
-        "logic": "(ORIG) + LISTEN"
-    },
-    {
-        "name": "Resting_Grounds_Map",
         "logic": "(ORIG) + LISTEN"
     },
     {
@@ -173,10 +165,6 @@
     },
     {
         "Name": "Grimmkin_Flame-Brumm",
-        "Logic": "(ORIG) + LISTEN"
-    },
-    {
-        "Name": "Monomon",
         "Logic": "(ORIG) + LISTEN"
     }
 ]
